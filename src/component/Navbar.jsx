@@ -1,4 +1,5 @@
-function Navbar() {
+
+function Header() {
   return (
     <div className="w-screen h-12 bg-neutral-400">
       <div className="flex justify-start content-center font-sans text-2xl font-bold text-yellow-400">
@@ -7,4 +8,4 @@ function Navbar() {
     </div>
   );
 }
-export default Navbar;
+export default Header;
