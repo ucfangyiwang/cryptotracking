@@ -1,16 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeCurrency } from "../store/priceSlice";
+import { Link } from "react-router-dom";
 function Header() {
   const dispatch = useDispatch();
 
   return (
-    <div className=" flex justify-between px-6 w-screen h-16  ">
-      <div className="flex justify-center  font-sans text-2xl font-bold text-yellow-400">
+    <div className=" flex justify-center flex-wrap content-center px-6 w-screen h-1/5 ">
+      <div className="pb-8 flex justify-center content-center w-screen font-sans text-3xl text-center font-bold text-yellow-400">
         Crypto Tracking
       </div>
-
-      <div className="flex justify-center content-center dropdown ">
-        <label tabIndex={0} className="btn m-1 ">
+      <div className="pb-8 pr-8 flex justify-center">
+        <button className="btn btn-warning">
+          <Link to="/">home</Link>
+        </button>
+      </div>
+      <div className="pb-8 pr-4 flex justify-center">
+        <button className="btn btn-warning">
+          <Link to="/fav">Favorite list</Link>
+        </button>
+      </div>
+      <div className="pb-8 pl-4 flex justify-center content-center  dropdown ">
+        <label tabIndex={0} className="btn btn-warning ">
           CURRENCY SELECT
         </label>
         <ul

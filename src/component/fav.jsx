@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { removeCoinfromList } from "../store/favSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { loadData } from "../../store/priceSlice";
-import FavoriteCoin from "../favorite/favoriteCoin";
-function CryptoPrice() {
-  const dispatch = useDispatch();
-  const { list, currency } = useSelector((store) => store.price);
+import { Link } from "react-router-dom";
+
+function FavoriteCoinList() {
   const { favlist } = useSelector((store) => store.fav);
-  console.log(list);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      dispatch(loadData());
-    }, 3000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [dispatch]);
-
-  // const filteredCoins = coins.filter((coin) =>
-  //   coin.name.toLowerCase().includes(search.toLowerCase())
-  // );
-
+  const dispatch = useDispatch();
   return (
     <div className=" w-full flex justify-center content-center  ">
       <table className="table-auto">
@@ -36,8 +20,8 @@ function CryptoPrice() {
           </tr>
         </thead>
         <tbody>
-          {list !== undefined &&
-            list.map((coin) => {
+          {favlist !== undefined &&
+            favlist.map((coin) => {
               return (
                 <tr>
                   <td className="flex justify-center content-center">
@@ -57,11 +41,14 @@ function CryptoPrice() {
 
                   <td className="text-center">{coin.high_24h}</td>
                   <td className="text-center">{coin.low_24h}</td>
-                  <FavoriteCoin
-                    className="flex justify-center"
-                    key={coin.name}
-                    coin={coin}
-                  />
+                  <td className="  w-1/8 bg-gray-100 p-1 text-xs rounded-md self-center text-center cursor-pointer">
+                    <button
+                      className="w-full"
+                      onClick={() => dispatch(removeCoinfromList(coin))}
+                    >
+                      remove
+                    </button>
+                  </td>
                 </tr>
               );
             })}
@@ -70,5 +57,4 @@ function CryptoPrice() {
     </div>
   );
 }
-
-export default CryptoPrice;
+export default FavoriteCoinList;
