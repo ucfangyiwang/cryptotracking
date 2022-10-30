@@ -1,10 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit/dist/configureStore";
-import { cryptoApi } from "./cryptoApi";
+import { configureStore } from "@reduxjs/toolkit";
+import priceSlice from "./priceSlice";
 
-export const store=configureStore({
-    reducer:{
-        [cryptoApi.reducerPath]:cryptoApi.reducer
-    },
-    middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(cryptoApi.middleware)
-})
+export default configureStore({
+  reducer: {
+    price: priceSlice,
+  },
+});
