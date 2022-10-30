@@ -3,12 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeCurrency, loadData } from "../../store/priceSlice";
 function CryptoPrice() {
   const dispatch = useDispatch();
-  const { list } = useSelector((store) => store.price);
+  const { list, currency } = useSelector((store) => store.price);
+
   console.log(list);
 
   useEffect(() => {
-    dispatch(loadData());
-  }, [dispatch, list.currency]);
+    const timer = setInterval(() => {
+      dispatch(loadData());
+    }, 3000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [dispatch]);
 
   // const filteredCoins = coins.filter((coin) =>
   //   coin.name.toLowerCase().includes(search.toLowerCase())
@@ -35,20 +41,20 @@ function CryptoPrice() {
                   <td className="flex justify-center content-center">
                     <img className="w-6 h-6" src={coin.image} alt="image"></img>
                   </td>
-                  <td>{coin.symbol}</td>
-                  <td>{coin.current_price}</td>
+                  <td className="text-center">{coin.symbol}</td>
+                  <td className="text-center">{coin.current_price}</td>
                   {coin.price_change_percentage_24h > 0 ? (
-                    <td className="text-emerald-500">
-                      {coin.price_change_percentage_24h}%
+                    <td className="text-emerald-500 text-center">
+                      {coin.price_change_percentage_24h.toFixed(2)}%
                     </td>
                   ) : (
-                    <td className="text-rose-500">
-                      {coin.price_change_percentage_24h}%
+                    <td className="text-rose-500 text-center">
+                      {coin.price_change_percentage_24h.toFixed(2)}%
                     </td>
                   )}
 
-                  <td>{coin.high_24h}</td>
-                  <td>{coin.low_24h}</td>
+                  <td className="text-center">{coin.high_24h}</td>
+                  <td className="text-center">{coin.low_24h}</td>
                 </tr>
               );
             })}

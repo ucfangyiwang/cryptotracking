@@ -1,17 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useSelector, useDispatch } from "react-redux";
-var currency = "USD";
 
+var currency = "USD";
 const loadpriceAPI = () =>
   fetch(
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=" +
       currency +
-      "&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      "&order=market_cap_desc&per_page=50&page=1&sparkline=false"
   ).then((res) => res.json());
 
 export const loadData = createAsyncThunk("drug/loadData", async () => {
   const res = await loadpriceAPI();
-
   return res;
 });
 
@@ -19,7 +18,7 @@ export const priceSlice = createSlice({
   name: "cryptodata",
   initialState: {
     list: [],
-    currency: "AUD",
+    currency: "USD",
   },
   reducers: {
     changeCurrency(state, { payload }) {
