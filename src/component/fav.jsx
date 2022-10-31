@@ -7,53 +7,51 @@ function FavoriteCoinList() {
   const dispatch = useDispatch();
   return (
     <div className=" w-full flex justify-center content-center  ">
-      <table className="table-auto">
-        <thead className="">
-          <tr className="text-base">
-            <th className="px-8">Logo</th>
-            <th className="px-8">name</th>
-            <th className="px-8">price</th>
-            <th className="px-8">24h change %</th>
-            <th className="px-8">24h high</th>
-            <th className="px-8">24h low</th>
-            <th className="px-8">favorite</th>
-          </tr>
-        </thead>
-        <tbody>
-          {favlist !== undefined &&
-            favlist.map((coin) => {
-              return (
-                <tr>
-                  <td className="flex justify-center content-center">
-                    <img className="w-6 h-6" src={coin.image} alt="image"></img>
-                  </td>
-                  <td className="text-center">{coin.symbol}</td>
-                  <td className="text-center">{coin.current_price}</td>
-                  {coin.price_change_percentage_24h > 0 ? (
-                    <td className="text-emerald-500 text-center">
-                      {coin.price_change_percentage_24h.toFixed(2)}%
-                    </td>
-                  ) : (
-                    <td className="text-rose-500 text-center">
-                      {coin.price_change_percentage_24h.toFixed(2)}%
-                    </td>
-                  )}
+      <div className="grid grid-cols-7 gap-2 md:gap-8 xl:gap-16 ">
+        <div className="text-center">Logo</div>
+        <div className="text-center">name</div>
+        <div className="text-center">price</div>
+        <div className="text-center">24h change %</div>
+        <div className="text-center">24h high</div>
+        <div className="text-center">24h low</div>
+        <div className="text-center">favorite</div>
+        {favlist !== undefined &&
+          favlist.map((coin) => {
+            return (
+              <>
+                <div className="flex justify-center content-center">
+                  <img
+                    className="w-6  md:w-12  lg:w-16 "
+                    src={coin.image}
+                    alt="image"
+                  ></img>
+                </div>
+                <div className="text-center">{coin.symbol}</div>
+                <div className="text-center">{coin.current_price}</div>
+                {coin.price_change_percentage_24h > 0 ? (
+                  <div className="text-emerald-500 text-center">
+                    {coin.price_change_percentage_24h.toFixed(2)}%
+                  </div>
+                ) : (
+                  <div className="text-rose-500 text-center">
+                    {coin.price_change_percentage_24h.toFixed(2)}%
+                  </div>
+                )}
 
-                  <td className="text-center">{coin.high_24h}</td>
-                  <td className="text-center">{coin.low_24h}</td>
-                  <td className="  w-1/8 bg-gray-100 p-1 text-xs rounded-md self-center text-center cursor-pointer">
-                    <button
-                      className="w-full"
-                      onClick={() => dispatch(removeCoinfromList(coin))}
-                    >
-                      remove
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
+                <div className="text-center">{coin.high_24h}</div>
+                <div className="text-center">{coin.low_24h}</div>
+                <div className="  w-1/8 bg-gray-100 p-1 text-xs rounded-md self-center text-center cursor-pointer">
+                  <button
+                    className="w-full"
+                    onClick={() => dispatch(removeCoinfromList(coin))}
+                  >
+                    remove
+                  </button>
+                </div>
+              </>
+            );
+          })}
+      </div>
     </div>
   );
 }

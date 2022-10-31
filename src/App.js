@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./component/Navbar";
 import Tracking from "./component/Tracking";
@@ -7,14 +7,14 @@ import Footer from "./component/Footer";
 function App() {
   return (
     <>
-      <Router>
+      <BrowserRouter basename="/cryptotracking">
         <Navbar />
         <Routes>
           <Route path="/" element={<Tracking />} />
           <Route path="/fav" element={<FavoriteCoinList />} />
         </Routes>
         <Footer />
-      </Router>
+      </BrowserRouter>
     </>
   );
 }

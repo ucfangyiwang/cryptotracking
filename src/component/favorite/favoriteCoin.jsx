@@ -11,23 +11,23 @@ function FavoriteCoin(props) {
   return (
     <>
       {findcoin ? (
-        <td className="  w-1/8 bg-gray-100 p-1 text-xs rounded-md self-center text-center cursor-pointer">
+        <div className="  bg-gray-100 p-1 text-xs rounded-md self-center text-center cursor-pointer">
           <button
             className="w-full"
             onClick={() => dispatch(removeCoinfromList(props.coin))}
           >
             added
           </button>
-        </td>
+        </div>
       ) : (
-        <td className=" text- w-1/8 bg-yellow-500 text-white p-1 text-xs rounded-md self-center text-center cursor-pointer">
+        <div className=" bg-yellow-500 text-white p-1 text-xs rounded-md self-center text-center cursor-pointer">
           <button
             className="w-full"
             onClick={() => dispatch(addCoinToList(props.coin))}
           >
             add
           </button>
-        </td>
+        </div>
       )}
     </>
   );
