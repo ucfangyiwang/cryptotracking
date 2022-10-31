@@ -17,7 +17,7 @@ In order to keep the accuracy of data, This project send the get request every 3
 17
 the second reducer is to handle the favorite list data. this reducer can handle users to add and delete functions on the home page and delete functions on the favorite list page.
 
-learned from the project: I learned about the redux toolkit from the project this is a very powerful and useful tool. when I write the project, I got a lot of bugs. this project helps me to improve my problem-solving skills. I also realized the importance of JavaScript because 
+learned from the project: I learned about the redux toolkit from the project this is a very powerful and useful tool. when I write the project, I got a lot of bugs. this project helps me to improve my problem-solving skills. I also realized the importance of JavaScript because there are many javascript functions that need to be used in react projects
 
 
 
