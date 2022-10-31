@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+introduction:This is a crypto tracking website,this website include 3 features:  
+1.update real-time crypto price and 24hours price change. 
+2.this website also allow user to add their favorite crypto to own list and delete any coin which they want.
+3.this website allow user to choose currency type to match crypto price
+![crypto1](https://user-images.githubusercontent.com/94621435/199002381-ec910167-1a55-4fd2-8a0f-b5fa86e1ba04.PNG)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+out scope: the project haven't realized the crypto analysis function form the project proposal
 
-## Available Scripts
+this project use React. Hook router , tailwind CSS , and Redux toolkit. I also use daisy ui API to create 3 button
+the crypto api is from coingecko api.
 
-In the project directory, you can run:
+layout rationale: this is a responsive design website. I use the tailwind CSS because tailwind CSS can write CSS keywords in the react file and it can simplify the key word. I can save some time by using tailwind CSS. I use grid and flex layout to make the webs become responsive.
 
-### `npm start`
+data rationale: This project use redux toolkit to manage all the data. I use redux because the react component like a tree structure , passing data need to layer by layer that is very complex in trdational appliction.redux can provide centralized data management. redux tookit can simplify writing of redux. The project use 2 redux reducer that one reducer is manage the crypto data and currency. when user click one of the button ![crypto2](https://user-images.githubusercontent.com/94621435/199003776-8c80d58a-cfdd-4368-b282-d6a2abc7a954.PNG) it will send user slection to this reducer then the fetch url will change and get same type of currency with user selection.![image](https://user-images.githubusercontent.com/94621435/199007793-7b01f86a-d704-41e8-b7a3-e0fc1e93e22e.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In order to keep the accuracy of data, This project send the get request every 3 second but this is a free api and the api usually update about evry 30 second  ![crypto](https://user-images.githubusercontent.com/94621435/199007228-87e1c51e-8899-44e2-abce-54569a59f541.PNG).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
