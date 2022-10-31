@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter basename="/cryptotracking">
         <Navbar />
         <Routes>
-          <Route  exact path="/cryptotracking" element={<Tracking />} />
+          <Route  exact path="/" element={<Tracking />} />
           <Route path="/fav" element={<FavoriteCoinList />} />
         </Routes>
         <Footer />
